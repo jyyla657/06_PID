@@ -22,7 +22,7 @@ static void f_Integral_Limit(PIDInstance *pid)
     static float temp_Output, temp_Iout;
     temp_Iout = pid->Iout + pid->ITerm;
     temp_Output = pid->Pout + pid->Iout + pid->Dout;
-    if (abs(temp_Output) > pid->MaxOut)
+    if (fabsf(temp_Output) > pid->MaxOut)
     {
         if (pid->Err * pid->Iout > 0) // 积分却还在累积
         {
